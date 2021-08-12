@@ -81,7 +81,8 @@ main {
 .theme,
 .box,
 .userInfo,
-.status {
+.status,
+.row {
   display: flex;
 }
 .theme {
@@ -150,4 +151,10 @@ main {
   font-weight: 100;
   letter-spacing: 5px;
   font-size: 13px;
+}
+.userFollower {
+  margin: 1rem 0;
+}
+.status p {
+  font-size: 12px;
 }
