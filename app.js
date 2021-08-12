@@ -36,6 +36,7 @@ socialmedia.forEach(e =>{
         icon.src='images/icon-up.svg';
         icon.classList.add('green');
         follower.innerHTML = 'FOLLOWERS';
+        follower.style.borderImageSlice
         if(e=== 'facebook'){
             numbers.innerHTML = '1987';
             today.innerHTML='12 Today';
@@ -86,12 +87,18 @@ socialmedia.forEach(e =>{
 });
 main.appendChild(socialMediaBox);
 socialmedia.forEach(e =>{
-    let classBox = document.querySelector(`.${e}-card`);
-    
+    let classCard = document.querySelector(`.${e}-card`);
+    let classBox = document.querySelector(`.${e}-box`)
     if(e === `facebook`){
         // console.log(classBox);
-        classBox.style.borderTop = `3px solid var(--facebook)`;
+        classCard.style.borderTop = `3px solid var(--facebook)`;
     }else if(e === `twitter`){
-        classBox.style.borderTop = `3px solid var(--twitter)`;
+        classCard.style.borderTop = `3px solid var(--twitter)`;
+    }else if(e === `instagram`){
+        classBox.style.borderTop = `3px solid`;
+        classBox.style.borderImageSlice = `1`;
+        classBox.style.borderImageSource = `var(--instagram)`;
+    }else if(e === `youtube`){
+        classCard.style.borderTop = `3px solid var(--youTube)`;
     }
 })
