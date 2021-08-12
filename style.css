@@ -6,7 +6,8 @@
 
   --facebook: hsl(208, 92%, 53%);
   --twitter: hsl(203, 89%, 53%);
-  --instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+  /* --instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%); */
+  --instagram: linear-gradient(to left, #fdc468, #df4996);
   --youTube: hsl(348, 97%, 39%);
 
   /* Dark Theme */
@@ -21,9 +22,9 @@
 
   /* Dark Theme */
 
-  --veryDarkBlue: hsl(230, 17%, 14%); /* BG */
-  --veryDarkBlue: hsl(232, 19%, 15%); /* Top BG Pattern */
-  -darkdesaturatedblue: hsl(228, 28%, 20%);
+  --veryDarkBlueBg: hsl(230, 17%, 14%); /* BG */
+  --veryDarkBlueBgTp: hsl(232, 19%, 15%); /* Top BG Pattern */
+  --darkdesaturatedblue: hsl(228, 28%, 20%);
   --desaturatedBlue: hsl(228, 34%, 66%); /* text */
   -whitedt: hsl(0, 0%, 100%); /* text */
 
@@ -72,7 +73,8 @@ main {
   font-size: 1.4rem;
 }
 .headings p,
-.theme-name {
+.theme-name,
+main {
   color: var(--darkGrayishBlue);
   font-weight: 700;
 }
@@ -83,7 +85,6 @@ main {
   display: flex;
 }
 .theme {
-  /* width: 100%; */
   padding: 1rem 0;
   border-top: 1px solid var(--veryDarkBlue);
   align-items: center;
@@ -116,6 +117,7 @@ main {
 }
 .card {
   border-radius: 3px;
+  overflow: overlay;
 }
 .box {
   flex-flow: column;
@@ -132,4 +134,20 @@ main {
 .icon {
   width: 11px;
   height: 8px;
+}
+.userInfo {
+  align-items: center;
+}
+.userInfo p {
+  margin-left: 0.5rem;
+  font-size: 12px;
+}
+.numbers {
+  color: var(--veryDarkBlue);
+  font-size: 3.5rem;
+}
+.follower {
+  font-weight: 100;
+  letter-spacing: 5px;
+  font-size: 13px;
 }
