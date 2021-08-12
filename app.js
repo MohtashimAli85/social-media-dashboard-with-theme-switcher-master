@@ -27,6 +27,7 @@ socialmedia.forEach(e =>{
     follower.classList.add('follower');
     
     let icon = document.createElement('img');
+    icon.alt='icon';
     icon.classList.add('icon');
 
     let today =document.createElement('p');
@@ -101,4 +102,62 @@ socialmedia.forEach(e =>{
     }else if(e === `youtube`){
         classCard.style.borderTop = `3px solid var(--youTube)`;
     }
-})
+});
+
+class overView{
+    constructor(name,title,value,flag){
+        this.name=name;
+        this.title = title;
+        this.value = value;
+        this.flag=flag;
+    }
+}
+
+const facebookPageViews = new overView('facebook','Page Views','87','3%');
+const facebookLikes = new overView('facebook','Likes','52','2%');
+
+const instagramLikes = new overView('instagram','Likes','5462','2257%');
+const instagramViews = new overView('instagram','Profile Views','52k','1375%');
+
+const twitterRetweets = new overView('twitter','Retweets','117','303%');
+const twitterLikes = new overView('twitter','Likes','507','553%');
+
+const youtubeLikes = new overView('youtube','Likes','107','19%');
+const youtubeViews = new overView('youtube','Total Views','1407','12%');
+
+const socialObjects = [facebookPageViews,facebookLikes, instagramLikes,instagramViews,twitterRetweets,
+    twitterLikes,youtubeLikes,youtubeViews];
+const ov = document.createElement('h5');
+ov.innerHTML = 'Overview - Today';
+main.appendChild(ov);
+socialObjects.forEach(e =>{
+   let card = document.createElement('div');
+   card.classList.add('card');
+   let rowOne = document.createElement('div');
+   rowOne.classList.add('row');
+   let title = document.createElement('p');
+   title.innerHTML = e.title;
+   let img = document.createElement('img');
+   img.src=`images/icon-${e.name}.svg`;
+   img.alt= 'icon';
+   rowOne.appendChild(title); rowOne.appendChild(img);
+
+   let rowTwo = document.createElement('div');
+   rowTwo.classList.add('row');
+   let numbers = document.createElement('h5');
+   numbers.innerHTML = e.value;
+   let icon = document.createElement('img');
+    icon.classList.add('icon');
+    let flag =document.createElement('p');
+    if(e.title === 'Likes' && e.name === 'facebook'){
+        icon.src='images/icon-down.svg';
+    }else if(e.name === 'youtube'){
+        icon.src='images/icon-down.svg';
+    }else{
+        icon.src='images/icon-up.svg';
+    }
+
+
+});
+
+
