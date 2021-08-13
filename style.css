@@ -119,6 +119,9 @@ main {
   top: 3.4px;
   left: 1.65rem;
 }
+.btn:hover {
+  cursor: pointer;
+}
 
 .socialMedia-Container,
 .overViewSection {
