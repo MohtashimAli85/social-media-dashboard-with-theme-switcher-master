@@ -129,8 +129,12 @@ const socialObjects = [facebookPageViews,facebookLikes, instagramLikes,instagram
     twitterLikes,youtubeLikes,youtubeViews];
 const ov = document.createElement('h5');
 ov.innerHTML = 'Overview - Today';
+ov.className = 'overView';
 main.appendChild(ov);
+let overViewSection = document.createElement('div');
+    overViewSection.className = `overViewSection`;
 socialObjects.forEach(e =>{
+    
    let card = document.createElement('div');
    card.classList.add('card');
    let rowOne = document.createElement('div');
@@ -151,13 +155,34 @@ socialObjects.forEach(e =>{
     let flag =document.createElement('p');
     if(e.title === 'Likes' && e.name === 'facebook'){
         icon.src='images/icon-down.svg';
+        flag.className = 'red';
     }else if(e.name === 'youtube'){
         icon.src='images/icon-down.svg';
+        flag.className = 'red';
     }else{
         icon.src='images/icon-up.svg';
     }
+    icon.alt = 'icon';
+    flag.innerHTML = e.flag;
+    let status = document.createElement('div');
+    status.classList.add('status');
+    status.appendChild(icon); status.appendChild(flag);
+
+    rowTwo.appendChild(numbers); rowTwo.appendChild(status);
+
+    card.appendChild(rowOne); card.appendChild(rowTwo);
+
+    overViewSection.appendChild(card);
 
 
 });
+main.appendChild(overViewSection);
 
+const body = document.querySelector('body');
+const btn = document.getElementById('toggleBtn');
+
+btn.addEventListener('click',e =>{
+    body.classList.toggle('dark');
+    console.log('here');
+});
 
