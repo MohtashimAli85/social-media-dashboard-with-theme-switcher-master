@@ -12,7 +12,7 @@
 
   /* Dark Theme */
 
-  --dToggle: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+  --dToggle: linear-gradient(to right, #378fe6, #3eda82);
 
   /* Light Theme */
 
@@ -26,7 +26,7 @@
   --veryDarkBlueBgTp: hsl(232, 19%, 15%); /* Top BG Pattern */
   --darkdesaturatedblue: hsl(228, 28%, 20%);
   --desaturatedBlue: hsl(228, 34%, 66%); /* text */
-  -whitedt: hsl(0, 0%, 100%); /* text */
+  --whitedt: hsl(0, 0%, 100%); /* text */
 
   /* Light Theme */
 
@@ -41,26 +41,33 @@
   padding: 0;
   box-sizing: border-box;
 }
-body,
-.socialMedia-Container {
+* {
+  transition: background-color 0.5s ease-in-out, left 0.2s ease-in-out,
+    background-image 0.5s ease-in-out;
+}
+.d-grid,
+.socialMedia-Container,
+.overViewSection {
   display: grid;
+}
+.d-grid {
+  grid-template-rows: 10rem 5rem 1fr;
 }
 body {
   font-family: "Inter", sans-serif;
-  grid-template-rows: 10rem 5rem 1fr;
 }
 .container {
-  padding: 2rem 2rem 0;
+  padding: 2rem 2rem;
 }
 header {
-  background: var(--veryPaleBlue);
+  background-color: var(--veryPaleBlue);
   grid-row: 1/3;
   grid-column: 1/2;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
 main {
-  grid-row: 2/3;
+  grid-row: 2/4;
   grid-column: 1/2;
 }
 .headings {
@@ -113,28 +120,32 @@ main {
   left: 1.65rem;
 }
 
-.socialMedia-Container {
+.socialMedia-Container,
+.overViewSection {
   grid-gap: 10px;
 }
 .card {
   border-radius: 3px;
   overflow: overlay;
 }
+
 .box {
   flex-flow: column;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: var(--lightGrayishBlue);
+  background-color: var(--lightGrayishBlue);
   text-align: center;
 }
 .status {
-  align-items: center;
+  align-items: flex-end;
   color: var(--limeGreen);
 }
+.status .red {
+  color: var(--brightRed);
+}
 .icon {
-  width: 11px;
-  height: 8px;
+  padding-bottom: 5px;
 }
 .userInfo {
   align-items: center;
@@ -143,8 +154,11 @@ main {
   margin-left: 0.5rem;
   font-size: 12px;
 }
-.numbers {
+.numbers,
+.row h5 {
   color: var(--veryDarkBlue);
+}
+.numbers {
   font-size: 3.5rem;
 }
 .follower {
@@ -157,4 +171,83 @@ main {
 }
 .status p {
   font-size: 12px;
+  margin-left: 5px;
+}
+.row p {
+  font-size: 13px;
+}
+.overViewSection .card {
+  padding: 1rem 2rem;
+  background-color: var(--lightGrayishBlue);
+}
+.overView {
+  font-size: 1rem;
+  margin: 2rem 0 1rem;
+}
+.row {
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.row h5 {
+  font-size: 2rem;
+}
+
+.dark {
+  background-color: var(--veryDarkBlueBg);
+}
+.dark .overViewSection .card,
+.dark .box {
+  background-color: var(--darkdesaturatedblue);
+}
+.dark header {
+  background-color: var(--veryDarkBlueBgTp);
+}
+.dark .headings p,
+.dark .theme-name,
+.dark main {
+  color: var(--desaturatedBlue);
+}
+.dark .headings h1,
+.dark .numbers,
+.dark .row h5 {
+  color: var(--whitedt);
+}
+.dark .theme {
+  border-top: 1px solid var(--whitedt);
+}
+.dark .togglebutton {
+  background-color: transparent;
+  background-image: var(--dToggle);
+}
+.dark .btn {
+  background-color: var(--veryDarkBlueBgTp);
+  left: 0.3rem;
+}
+
+.socialMedia-Container {
+  --auto-grid-min-size: 15rem;
+}
+.overViewSection {
+  --auto-grid-min-size: 15rem;
+}
+.socialMedia-Container,
+.overViewSection {
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+}
+@media screen and (min-width: 768px) {
+  .socialMedia-Container,
+  .overViewSection {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    min-width: 1200px;
+    max-width: 1200px;
+    margin: auto;
+  }
 }
